@@ -1,0 +1,14 @@
+{% extends 'base.html' %}  <!-- A tag extends deve ser a primeira tag -->
+{% load static %}  <!-- Carregar a tag static depois de extends -->
+{% block content %}
+<div class="card">
+    <img src="{% static 'images/logo.png' %}" alt="Gestão Agro" class="logo">
+    <h2>Logue com o E-mail</h2>
+    <form>
+        <input type="email" placeholder="E-mail">
+        <input type="password" placeholder="Senha">
+        <button>Login</button>
+    </form>
+    <p>Não tem conta? <a href="{% url 'cadastro' %}">Registre-se</a></p>
+</div>
+{% endblock %}

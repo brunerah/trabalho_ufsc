@@ -1,0 +1,169 @@
+/* Resetando margens e preenchimento */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #007f00, #29a329, #53d453, #76ff76, #29a329);
+    background-size: 400% 400%; /* Animação do gradiente */
+    animation: gradientBackground 8s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+/* Animação do gradiente */
+@keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Contêiner principal */
+.container {
+    width: 100%;
+    max-width: 420px;
+    padding: 35px;
+    background: rgba(255, 255, 255, 0.95); /* Fundo semitransparente */
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px); /* Efeito de desfoque no fundo */
+    transition: all 0.4s ease;
+}
+
+.container:hover {
+    transform: translateY(-12px); /* Efeito de elevação no hover */
+}
+
+/* Cartão de login ou conteúdo */
+.card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease;
+}
+
+/* Efeito de sombra no hover */
+.card:hover {
+    transform: translateY(-7px);
+}
+
+/* Estilos para os inputs e botões */
+input, button {
+    width: 100%;
+    padding: 14px;
+    margin: 14px 0;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+/* Estilo dos inputs */
+input:focus {
+    border-color: #4caf50;
+    outline: none;
+}
+
+/* Estilo dos botões */
+button {
+    background: linear-gradient(135deg, #4caf50, #66e066);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #388e3c, #53d453);
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(1);
+}
+
+/* Estilo para links */
+a {
+    color: #007f00;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #29a329;
+}
+
+/* Botão de convidado */
+.btn-guest {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #4caf50, #76ff76);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-guest:hover {
+    background: linear-gradient(135deg, #388e3c, #53d453);
+    transform: scale(1.05);
+}
+
+/* Dashboard */
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Estilo para lista de tarefas */
+.tasks ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tasks li {
+    background: #e9f5e9;
+    padding: 12px;
+    margin: 6px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.tasks li:hover {
+    transform: scale(1.02);
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 500px) {
+    .container {
+        padding: 25px;
+    }
+
+    .card {
+        padding: 25px;
+    }
+
+    input, button {
+        padding: 12px;
+    }
+}

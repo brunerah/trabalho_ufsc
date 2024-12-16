@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão Agro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #68b36b, #a3d5a7);
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: #2d6a4f;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+
+        .sidebar img {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar h2 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .main {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-section, .animal-section, .tasks-section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-section {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .info-card {
+            flex: 1;
+            margin: 0 10px;
+            background: #e9f5ec;
+            border-radius: 8px;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .info-card h3 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #2d6a4f;
+        }
+
+        .info-card p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .animal-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .animal-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background: #e9f5ec;
+            border-radius: 8px;
+        }
+
+        .animal-row img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .animal-controls {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .animal-controls button {
+            background: #2d6a4f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            width: 30px;
+            height: 30px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .tasks-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .tasks-section li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #e9f5ec;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .tasks-section input[type="text"] {
+            flex: 1;
+            border: none;
+            background: transparent;
+            outline: none;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .tasks-section button {
+            background: #2d6a4f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .add-task {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <img src="logo.png" alt="Logo da Gestão Agro">
+            <h2>Carlos Antônio</h2>
+            <p>Fazenda Apolinário</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main">
+            <!-- Informações relevantes -->
+            <div class="info-section">
+                <div class="info-card">
+                    <h3>Número total de animais</h3>
+                    <p>000</p>
+                </div>
+                <div class="info-card">
+                    <h3>Estoque de ração</h3>
+                    <p>000</p>
+                </div>
+                <div class="info-card">
+                    <h3>Nascimentos de animais</h3>
+                    <p>000</p>
+                </div>
+                <div class="info-card">
+                    <h3>Preço do arroba do gado</h3>
+                    <p>R$ 000</p>
+                </div>
+            </div>
+
+            <!-- Controle de animais -->
+            <div class="animal-section">
+                <div class="animal-row">
+                    <div>🐄 Vacas</div>
+                    <div class="animal-controls">
+                        <button onclick="increment('vacas')">+</button>
+                        <p id="vacas">000</p>
+                        <button onclick="decrement('vacas')">-</button>
+                    </div>
+                </div>
+                <div class="animal-row">
+                    <div>🐎 Cavalos</div>
+                    <div class="animal-controls">
+                        <button onclick="increment('cavalos')">+</button>
+                        <p id="cavalos">000</p>
+                        <button onclick="decrement('cavalos')">-</button>
+                    </div>
+                </div>
+                <div class="animal-row">
+                    <div>🐖 Suínos</div>
+                    <div class="animal-controls">
+                        <button onclick="increment('suinos')">+</button>
+                        <p id="suinos">000</p>
+                        <button onclick="decrement('suinos')">-</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lista de Tarefas -->
+            <div class="tasks-section">
+                <h3>Tarefas</h3>
+                <ul id="task-list"></ul>
+                <div class="add-task">
+                    <input type="text" id="new-task" placeholder="Adicionar nova tarefa">
+                    <button onclick="addTask()">Adicionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function increment(id) {
+            const element = document.getElementById(id);
+            let value = parseInt(element.textContent);
+            element.textContent = (value + 1).toString().padStart(3, '0');
+        }
+
+        function decrement(id) {
+            const element = document.getElementById(id);
+            let value = parseInt(element.textContent);
+            if (value > 0) {
+                element.textContent = (value - 1).toString().padStart(3, '0');
+            }
+        }
+
+        function addTask() {
+            const taskInput = document.getElementById('new-task');
+            const taskList = document.getElementById('task-list');
+            const taskText = taskInput.value.trim();
+
+            if (taskText !== '') {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <input type="text" value="${taskText}" readonly>
+                    <button onclick="removeTask(this)">Remover</button>
+                `;
+                taskList.appendChild(li);
+                taskInput.value = '';
+            }
+        }
+
+        function removeTask(button) {
+            const li = button.parentElement;
+            li.remove();
+        }
+    </script>
+</body>
+</html>

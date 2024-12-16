@@ -1,0 +1,16 @@
+{% extends 'base.html' %}  <!-- A tag extends deve ser a primeira tag -->
+{% load static %}  <!-- Carrega a tag static depois de extends -->
+{% block content %}
+    <div class="card">
+        <h2>Cadastre-se com o E-mail</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Nome de usuário">
+            <input type="email" name="email" placeholder="E-mail">
+            <input type="password" name="password" placeholder="Senha">
+            <input type="password" name="password2" placeholder="Confirme a senha">
+            <button type="submit">Cadastrar-se</button>
+        </form>
+        <p>Já tem conta? <a href="{% url 'home' %}">Login</a></p>
+    </div>
+{% endblock %}

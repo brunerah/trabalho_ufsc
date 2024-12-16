@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="dashboard">
+    <div class="profile">
+        <img src="{% static 'images/user.png' %}" alt="Usuário">
+        <h3>Carlos Antônio</h3>
+        <p>Produtor Rural</p>
+    </div>
+    <div class="info">
+        <h2>Informações relevantes últimos 30 dias</h2>
+        <div class="cards">
+            <div class="card">Vacinas: todas aplicadas</div>
+            <div class="card">Histórico de saúde atualizado</div>
+            <div class="card">Preço do gado em alta</div>
+        </div>
+    </div>
+    <div class="tasks">
+        <h3>Tarefas</h3>
+        <ul>
+            <li><input type="checkbox"> Alimentar o gado</li>
+            <li><input type="checkbox"> Revisar cercas</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
